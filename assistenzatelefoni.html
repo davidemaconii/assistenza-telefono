@@ -1,0 +1,196 @@
+<!doctype html>
+<html> 
+<head> 
+	<meta charset="utf-8" /> 
+	<title>Assistenza Telefoni</title> 
+	<style>
+		button{
+			text-align: center;
+		}
+		table {
+		    width: 610px;
+		    margin-left: auto;
+		    margin-right: auto;
+		    border-collapse: collapse;
+		    font-family: Redactio;
+		    font-size: 17px;
+		}
+
+		td {
+		    border: 1px solid black;
+		    padding: 5px 8px;
+		    background-color: #f2f2f2;
+		    text-align: left;
+		}
+
+		th {
+		    border: 1px solid black;
+		    background-color: maroon;
+		    color: white;
+		    text-align: center;
+		    font-weight: bold;
+		    padding: 2px;
+		}
+		
+		.pulsante {
+		    text-align: center;
+		    margin-top: 15px;
+			
+		}
+	</style>
+</head>
+<body> 
+	<form method="post" action="mailto:info.davidemaconii@gmail.com" enctype="multipart/form-data" name="form1" id="form1">
+		<table>
+			
+			<tr>
+				<th class="negozio" colspan="2"><p>Connect Store - Via Giambellino, 41/A <br /> Ricevuta di consegna </p></th>
+			</tr>
+			
+			<tr>
+				<td class="sx">Nome</td>
+				<td class="dx"><input class="casella" type="text" name="nome" id="nome" placeholder="Scrivi il  nome" /></td>
+			</tr>
+			
+			<tr>
+				<td class="sx">Cognome</td>
+				<td class="dx"><input class="casella" type="text" name="cognome" id="cognome" required placeholder="Scrivi il cognome" /></td>
+			</tr>
+			
+			<tr>
+				<td class="sx">Codice Fiscale</td>
+				<td class="dx"><input type="text" name="codice_fiscale" maxlength="16" placeholder="Scrivi il codice fiscale" /></td>
+			</tr>
+			
+			<tr>
+				<td class="sx">Città</td>
+				<td class="dx"><input class="casella" type="text" name="città" id="città" required placeholder="Scrivi la città" /></td>
+			</tr>
+
+			<tr>
+				<td class="sx">Gestore telefonico</td>
+				<td class="dx"><select name="gestore" class="casella">
+					<option class="casella" selected hidden=true>Gestore telefonico
+					<option class="casella" value="TIM">TIM</option>
+					<option class="casella" value="Vodafone">Vodafone</option>
+					<option class="casella" value="WINDTRE">WINDTRE</option>
+					<option class="casella" value="Iliad">Iliad</option>
+					<option class="casella" value="Fastweb">Fastweb</option>
+					<option class="casella" value="ho.Mobile">ho.Mobile</option>
+					<option class="casella" value="Kena Mobile">Kena Mobile</option>
+					<option class="casella" value="Very Mobile">Very Mobile</option>
+					<option class="casella" value="PosteMobile">PosteMobile</option>
+					<option class="casella" value="CoopVoce">CoopVoce</option>
+					<option class="casella" value="Tiscali">Tiscali</option>
+					<option class="casella" value="Spusu">Spusu</option>
+					<option class="casella" value="1Mobile">1Mobile</option>
+					<option class="casella" value="Lyncamobile">Lyncamobile</option>
+					<option class="casella" value="Optima Mobile">Optima Mobile</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td class="sx">Numero di telefono dispositivo</td>
+				<td class="dx"><input type="tel" name="telefono" placeholder="Scrivi il recapito telefonico" size="32" maxlength= "15" /></td>
+			</tr>
+			
+			<tr>
+				<td class="sx">Marca dispositivo</td>
+				<td class="dx"><select name="marca" class="casella">
+					<option class="casella" selected hidden=true>Marca dispositivo
+					<option class="casella" value="TIM">Apple</option>
+					<option class="casella" value="Samsung">Samsung</option>
+					<option class="casella" value="Xiaomi">Xiaomi</option>
+					<option class="casella" value="Redmi">Redmi</option>
+					<option class="casella" value="Huawei">Huawei</option>
+					<option class="casella" value="Motorola">Motorola</option>
+					<option class="casella" value="OPPO">OPPO</option>
+					<option class="casella" value="OnePlus">OnePlus</option>
+					<option class="casella" value="Google">Google</option>
+					<option class="casella" value="Honor">Honor</option>
+					<option class="casella" value="Nokia">Nokia</option>
+					<option class="casella" value="Sony">Sony</option>
+					<option class="casella" value="Realme">Realme</option>
+					<option class="casella" value="ASUS">ASUS</option>
+					<option class="casella" value="Nothing">Nothing</option>
+					<option class="casella" value="Vivo">Vivo</option>
+					<option class="casella" value="ZTE">ZTE</option>
+					<option class="casella" value="TCL">TCL</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td class="sx">Modello dispositivo</td>
+				<td class="dx"><input class="casella" type="text" name="modello" id="modello" required placeholder="Scrivi il modello" /></td>
+			</tr>
+
+			<tr>
+				<td class="sx">Breve descrizione del problema</td>
+				<td class="dx"><input class="casella" type="text" name="problema" id="problema" required placeholder="Scrivi il problema" /></td>
+			</tr>
+			
+			<tr>
+				<td class="sx">Recapito di contatto (se diverso dal<br/> numero del dispositivo in riparazione)</td>
+				<td class="dx"><input type="tel" name="telefono_alternativo" placeholder="Scrivi il recapito telefonico alternativo" size="32" maxlength="15" /></td>
+			</tr>
+				
+		</table>
+	</form>	
+	
+	<div class="pulsante">
+	    <button type="button" id="stampa">Stampa</button>
+	</div>
+	
+	<div id="ricevuta"></div>
+	
+	<script>
+		document.getElementById("stampa").addEventListener("click", stampaRicevuta);
+		
+		function stampaRicevuta() {
+			
+			let nome = document.form1.nome.value;
+			let cognome = document.form1.cognome.value;
+			let codice_fiscale = document.form1.codice_fiscale.value;
+			let città = document.form1.città.value;
+			let gestore = document.form1.gestore.value;
+			let telefono = document.form1.telefono.value;
+			let marca = document.form1.marca.value;
+			let modello = document.form1.modello.value;
+			let problema = document.form1.problema.value;
+			let telefono_alternativo = document.form1.telefono_alternativo.value;
+			
+				if (telefono_alternativo == "") {
+					
+					telefono_alternativo = telefono;
+				}
+			
+			document.getElementById("ricevuta").innerHTML =
+			"<table>" +
+			"<tr><th colspan='2'><p>Connect Store - Via Giambellino, 41/A <br> Ricevuta di consegna</p></th></tr>" +
+			"<tr><td>Nome</td><td>" + nome + "</td></tr>" +
+			"<tr><td>Cognome</td><td>" + cognome + "</td></tr>" +
+			"<tr><td>Codice Fiscale</td><td>" + codice_fiscale + "</td></tr>" +
+			"<tr><td>Città</td><td>" + città + "</td></tr>" +
+			"<tr><td>Gestore telefonico</td><td>" + gestore + "</td></tr>" +
+			"<tr><td>Numero di telefono dispositivo</td><td>" + telefono + "</td></tr>" +
+			"<tr><td>Marca dispositivo</td><td>" + marca + "</td></tr>" +
+			"<tr><td>Modello dispositivo</td><td>" + modello + "</td></tr>" +
+			"<tr><td>Breve descrizione del problema</td><td>" + problema + "</td></tr>" +
+			"<tr><td>Recapito di contatto</td><td>" + telefono_alternativo + "</td></tr>" +
+			"</table>" + "<div class='pulsante'><button type='button' id='torna'>Torna al form</button></div>";
+			
+			document.getElementById("form1").style.display = "none";
+			document.getElementById("stampa").style.display = "none";
+			document.getElementById("torna").addEventListener("click", tornaForm);
+		}
+		
+		function tornaForm() {
+			
+			document.getElementById("form1").style.display = "block";
+			document.getElementById("stampa").style.display = "inline-block";
+			document.getElementById("ricevuta").innerHTML = "";
+			document.getElementById("form1").reset();
+		}
+	</script>
+</body>
+</html> 
